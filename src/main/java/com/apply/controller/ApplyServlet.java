@@ -56,6 +56,8 @@ public class ApplyServlet extends HttpServlet {
             ApplyService applyService = new ApplyService();
             ApplyVO applyVO = applyService.updateApply(applyId, results);
             
+            
+            
             /***************************3.修改完成,準備轉交(Send the Success view)*************/
 			req.setAttribute("applyVO", applyVO); // 資料庫update成功後,正確的的applyVO物件,存入req
 			String url = "/back-end/platform/homepage.jsp";
