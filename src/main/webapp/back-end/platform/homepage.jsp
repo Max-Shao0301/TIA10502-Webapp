@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page import="java.util.*"%>
 <%@ page import="com.apply.model.*"%>
 <%@ page import="com.member.model.*"%>
@@ -135,7 +136,7 @@ pageContext.setAttribute("ordersList", ordersList);
 						<td>${applyVO.name}</td>
 						<td>${applyVO.phone}</td>
 						<td>${applyVO.email}</td>
-						<td>${applyVO.submissionDate}</td>
+						<td><fmt:formatDate value="${applyVO.submissionDate}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
 						
 						<td><c:if test="${applyVO.results == 0}">
 							未通過
@@ -233,8 +234,8 @@ pageContext.setAttribute("ordersList", ordersList);
 						</c:if> <c:if test="${memberVO.status == 1}">
 							啟用中
 						</c:if></td>
-						<td>${memberVO.registration_time}</td>
-						<td>${memberVO.last_update_time}</td>
+						<td><fmt:formatDate value="${memberVO.registration_time}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
+						<td><fmt:formatDate value="${memberVO.last_update_time}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
 						<td>
 							<form action="${pageContext.request.contextPath}/MemberServlet" method="post">
 							<input type="hidden" name="member_id" value="${memberVO.member_id}">
@@ -288,8 +289,8 @@ pageContext.setAttribute("ordersList", ordersList);
 						</c:if> <c:if test="${staffVO.status == 1}">
 							啟用中
 						</c:if></td>
-						<td>${staffVO.create_time}</td>
-						<td>${staffVO.last_update_time}</td>
+						<td><fmt:formatDate value="${staffVO.create_time}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
+						<td><fmt:formatDate value="${staffVO.last_update_time}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
 						<td>
 						<form action="${pageContext.request.contextPath}/StaffServlet" method="post">
 							<input type="hidden" name="staff_id" value="${staffVO.staff_id}">
