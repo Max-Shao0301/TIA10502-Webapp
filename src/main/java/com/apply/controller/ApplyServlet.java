@@ -53,6 +53,8 @@ public class ApplyServlet extends HttpServlet {
                 return;
             }
             
+            
+            
             ApplyService applyService = new ApplyService();
             ApplyVO applyVO = applyService.updateApply(applyId, results);
             

@@ -34,14 +34,14 @@ public class ApplyTest {
 		
 		//insert
 		ApplyVO applyVO = new ApplyVO();
-		applyVO.setEmail("Bank@icloud.com");
-		applyVO.setName("Bank");
-		applyVO.setPhone("0963224171");
+		applyVO.setEmail("Cathy@icloud.com");
+		applyVO.setName("Cathy");
+		applyVO.setPhone("0900011371");
 		applyVO.setGender(1);
-		byte[] licence_photo = getPictureByteArray("src/main/webapp/resource/images/lic3.jpeg");
+		byte[] licence_photo = getPictureByteArray("src/main/webapp/resource/images/lic4.jpeg");
 		applyVO.setLicencePhoto(licence_photo);
-		applyVO.setPlateNumber("BCA7393");
-		applyVO.setIntroduction("I'm Bank, Hello!");
+		applyVO.setPlateNumber("BSP1283");
+		applyVO.setIntroduction("I'm Cathy, Hello!");
 		dao.insert(applyVO);
 		
 		//update

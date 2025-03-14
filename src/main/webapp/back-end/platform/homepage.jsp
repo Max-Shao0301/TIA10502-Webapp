@@ -145,7 +145,7 @@ pageContext.setAttribute("ordersList", ordersList);
 						</c:if> <c:if test="${applyVO.results == 2}">
 							未審核
 						</c:if></td>
-						<td>${applyVO.reviewDate}</td>
+						<td><fmt:formatDate value="${applyVO.reviewDate}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
 						<td><span class="view-resume" data-name="${applyVO.name}"
 							data-gender="${applyVO.gender}" data-phone="${applyVO.phone}"
 							data-email="${applyVO.email}" data-plate="${applyVO.plateNumber}"
@@ -379,6 +379,7 @@ pageContext.setAttribute("ordersList", ordersList);
 		      $("#rs").attr("value", "1");
 		      /* statusCell.text("已通過"); // 更新審核結果 */
 		    } else if ($(event.target).is("#reject-btn")) {
+		      
 		      alert("該應徵者已被婉拒！");
 		      $("#rs").attr("value", "0");
 		      /* statusCell.text("未通過"); // 更新審核結果 */
@@ -392,8 +393,8 @@ pageContext.setAttribute("ordersList", ordersList);
 		    let statusCell = row.find("td:nth-child(7)"); // 找到帳號狀態的欄位（第7個欄位）
 		    let userId = row.find("td:first").text(); // 取得用戶編號
 
-		    if (confirm(`確定要停權用戶嗎？`)) {
-// 		      statusCell.text("已停權"); // 更新帳號狀態
+		    if (!confirm(`確定要停權用戶嗎？`)) {
+				return;
 
 		      // 可以在這裡加入 AJAX 來同步更新後端
 		      // $.post("/updateStatus", { userId: userId, status: "已停權" });

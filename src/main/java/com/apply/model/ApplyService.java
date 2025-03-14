@@ -47,18 +47,19 @@ public class ApplyService {
 		applyVO.setResults(results);
 		
 		dao.update(applyVO);
-		
-		staffVO.setApply_id(applyVO.getApplyId());
-		staffVO.setEmail(applyVO.getEmail());
-		staffVO.setPassword("123456");
-		staffVO.setName(applyVO.getName());
-		staffVO.setPhone(applyVO.getPhone());
-		staffVO.setGender(applyVO.getGender());
-		staffVO.setPlate_number(applyVO.getPlateNumber());
-		staffVO.setIntroduction(applyVO.getIntroduction());
-		staffdao.add(staffVO);
-		
-		
+		//當審核結果通過時才會新增員工進staff資料庫
+		if (results == 1) {
+			staffVO.setApply_id(applyVO.getApplyId());
+			staffVO.setEmail(applyVO.getEmail());
+			staffVO.setPassword("123456");
+			staffVO.setName(applyVO.getName());
+			staffVO.setPhone(applyVO.getPhone());
+			staffVO.setGender(applyVO.getGender());
+			staffVO.setPlate_number(applyVO.getPlateNumber());
+			staffVO.setIntroduction(applyVO.getIntroduction());
+			staffdao.add(staffVO);
+			
+		}
 		return applyVO;
 		
 	}
